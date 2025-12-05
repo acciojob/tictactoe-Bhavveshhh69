@@ -4,25 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial;
+            display: flex;
+            justify-content: center;
+            padding-top: 30px;
+        }
+        .container {
+            text-align: center;
+        }
+        #player-input {
+            margin-bottom: 20px;
+        }
+        #player-input input {
+            display: block;
+            margin: 10px auto;
+            padding: 8px;
+            width: 200px;
+        }
+        #submit {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+        .board {
+            margin: 20px auto;
+            width: 320px;
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            gap: 5px;
+        }
+        .cell {
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+            font-size: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .message {
+            font-weight: bold;
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+    </style>
 </head>
 <body>
 
 <div class="container">
 
-    <!-- PLAYER INPUT SCREEN -->
-    <div id="player-input-section">
+    <!-- Initial Player Input Page -->
+    <div id="player-input">
         <h1>Enter Player Names</h1>
 
-        <input type="text" id="player1" placeholder="Player 1 Name">
-        <input type="text" id="player2" placeholder="Player 2 Name">
+        <input type="text" id="player-1" placeholder="Player 1 Name">
+        <input type="text" id="player-2" placeholder="Player 2 Name">
         <button id="submit">Submit</button>
     </div>
 
-    <!-- GAME SCREEN -->
-    <div id="game-section" style="display:none;">
+    <!-- Game Page -->
+    <div id="game" style="display: none;">
         <h1>Tic Tac Toe</h1>
-
         <div class="message"></div>
 
         <div class="board">

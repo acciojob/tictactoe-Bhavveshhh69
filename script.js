@@ -4,27 +4,28 @@ let currentPlayer = "";
 let symbol = "x";
 let gameActive = true;
 
+// Handle Submit
 document.getElementById("submit").addEventListener("click", () => {
-    player1 = document.getElementById("player1").value.trim();
-    player2 = document.getElementById("player2").value.trim();
+    player1 = document.getElementById("player-1").value.trim();
+    player2 = document.getElementById("player-2").value.trim();
 
     if (player1 === "" || player2 === "") {
-        alert("Please enter both player names!");
+        alert("Please enter both names!");
         return;
     }
 
-    document.getElementById("player-input-section").style.display = "none";
-    document.getElementById("game-section").style.display = "block";
+    document.getElementById("player-input").style.display = "none";
+    document.getElementById("game").style.display = "block";
 
     currentPlayer = player1;
     symbol = "x";
     document.querySelector(".message").textContent = `${currentPlayer}, you're up`;
 });
 
+// Game cells
 const cells = document.querySelectorAll(".cell");
 
-// Winning combinations
-const wins = [
+const winningCombos = [
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9],
@@ -61,12 +62,11 @@ function switchTurn() {
         currentPlayer = player1;
         symbol = "x";
     }
-
     document.querySelector(".message").textContent = `${currentPlayer}, you're up`;
 }
 
 function checkWinner() {
-    return wins.some(combo => {
+    return winningCombos.some(combo => {
         const [a, b, c] = combo;
         return (
             document.getElementById(a).textContent === symbol &&
